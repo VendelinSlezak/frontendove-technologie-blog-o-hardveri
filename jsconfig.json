@@ -1,8 +1,14 @@
 {
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "exclude": ["node_modules", "dist"]
-}
+    "compilerOptions": {
+      "target": "ESNext",
+      "module": "ESNext",
+      "moduleResolution": "node",
+      "lib": ["DOM", "ESNext"],
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["src/*"]
+      },
+      "checkJs": false
+    },
+    "exclude": ["node_modules", "dist"]
+  }
