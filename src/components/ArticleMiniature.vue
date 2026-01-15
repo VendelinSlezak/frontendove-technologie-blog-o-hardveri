@@ -13,10 +13,10 @@ export default {
             <div class="row g-0 align-items-stretch">
                 <div class="col-md-4">
                     <img
-                    :src="article.image"
-                    class="img-fluid h-100 w-100 rounded-start"
-                    style="object-fit: cover;"
-                    :alt="article.altImg"
+                        :src="article.image"
+                        class="img-fluid h-100 w-100 rounded-start"
+                        style="object-fit: cover;"
+                        :alt="article.altImg"
                     >
                 </div>
                 
@@ -32,12 +32,7 @@ export default {
 
                     <p class="card-text text-secondary mb-4">{{ article.perex }}</p>
 
-                    <RouterLink
-                        :to="'/clanky/' + article.id"
-                        class="btn btn-outline-primary mt-auto align-self-start"
-                    >
-                        Čítať článok
-                    </RouterLink>
+                    <RouterLink :to="'/clanky/' + article.id" class="btn btn-outline-primary mt-auto align-self-start">Čítať článok</RouterLink>
 
                     </div>
                 </div>

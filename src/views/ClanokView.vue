@@ -2,7 +2,7 @@
 import ArticleComment from '@/components/ArticleComment.vue';
 import ArticleImage from '@/components/ArticleImage.vue';
 import HardwareRating from '@/components/HardwareRating.vue';
-import { useCommentDraftStore } from '@/stores/drafts';
+import { useCommentDraftStore } from '@/stores/commentDrafts.js';
 
 export default {
     name: 'ClanokView',
@@ -16,65 +16,89 @@ export default {
     },
     data() {
         return {
-            loaded: false,
+            articleApiUrl: 'http://localhost:3000/articles/' + this.id,
+            commentsApiUrl: 'http://localhost:3000/comments?articleId=' + this.id,
+            articleLoaded: false,
+            articleLoadingError: null,
             article: [],
+            commentsLoaded: false,
+            commentsLoadingError: null,
+            comments: [],
             newComment: { username: '', content: '' },
             commentDraft: useCommentDraftStore(),
-            apiUrl: 'http://localhost:3000/articles/' + this.id,
+            submittingComment: false,
         };
     },
     mounted() {
-        this.fetchArticles();
+        this.fetchArticle();
+        if(this.articleLoadingError !== null) {
+            return;
+        }
+        this.fetchComments();
         this.newComment = this.commentDraft.getDraft(this.id);
     },
     methods: {
-        async fetchArticles() {
+        async fetchArticle() {
             try {
-                this.loaded = false;
-                const response = await fetch(this.apiUrl);
+                this.articleLoaded = false;
+                const response = await fetch(this.articleApiUrl);
                 this.article = await response.json();
             } 
             catch(error) {
                 console.error("Chyba pri komunikácii so serverom:", error);
-                alert("Chyba pri načítaní článku: " + error.message);
+                this.articleLoadingError = error.message;
             }
             finally {
-                this.loaded = true;
+                this.articleLoaded = true;
+            }
+        },
+        async fetchComments() {
+            try {
+                this.commentsLoaded = false;
+                const response = await fetch(this.commentsApiUrl);
+                this.comments = await response.json();
+            } 
+            catch(error) {
+                console.error("Chyba pri komunikácii so serverom:", error);
+                this.commentsLoadingError = error.message;
+            }
+            finally {
+                this.commentsLoaded = true;
             }
         },
         async submitComment() {
+            this.submittingComment = true;
             const today = new Date().toISOString().split('T')[0];
-            const newEntry = {
+            const newComment = {
+                articleId: this.id,
                 username: this.newComment.username,
                 date: today,
-                content: this.newComment.content
+                content: this.newComment.content,
             };
-
+            
             try {
-                const updatedArticle = { ...this.article };
-                updatedArticle.comments.push(newEntry);
-
-                const response = await fetch(`${this.apiUrl}`, {
-                    method: 'PUT',
+                const response = await fetch(this.commentsApiUrl, {
+                    method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(updatedArticle)
+                    body: JSON.stringify(newComment)
                 });
                 if(!response.ok) {
-                    throw new Error("Nepodarilo sa uložiť komentár.");
+                    throw new Error(`${response.status} ${response.statusText}`);
                 }
-
-                this.article = await response.json();
-                this.newComment = { author: '', text: '' };
-                this.commentDraft.clearDraft(this.id);
-
-                alert("Komentár bol úspešne pridaný!");
             }
             catch(error) {
                 console.error("Chyba pri odosielaní:", error);
-                alert("Chyba: " + error.message);
+                alert("Chyba pri odosielaní: " + error.message);
+                this.submittingComment = false;
+                return;
             }
+
+            this.submittingComment = false;
+            this.comments.push(newComment);
+            this.newComment = { author: '', text: '' };
+            this.commentDraft.clearDraft(this.id);
         },
     },
     watch: {
@@ -89,8 +113,8 @@ export default {
 </script>
 
 <template>
-    <div v-if="loaded === true">
-        <div id="app" class="container my-5">
+    <div v-if="articleLoaded">
+        <div id="app" class="container my-5" v-if="articleLoadingError === null">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <article>
@@ -142,16 +166,45 @@ export default {
                                 <textarea id="comment" v-model="newComment.content" class="form-control" rows="3" placeholder="Napíšte niečo..." required></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Odoslať komentár</button>
+                            <button type="submit" class="btn btn-primary" :disabled="submittingComment">
+                                <span v-if="!submittingComment">
+                                    Odoslať komentár
+                                </span>
+                                <span v-else>
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    Odosielam komentár...
+                                </span>
+                            </button>
                         </form>
 
                         <h5 class="mb-3">Komentáre</h5>
                         
-                        <div v-for="comment in article.comments" :key="comment.id">
-                            <ArticleComment :comment="comment"/>
+                        <div v-if="commentsLoaded">
+                            <div v-if="commentsLoadingError === null">
+                                <div v-for="comment in comments" :key="comment.id">
+                                    <ArticleComment :comment="comment"/>
+                                </div>
+                            </div>
+                            <div v-else>
+                                <div class="alert alert-danger" role="alert">
+                                    Chyba pri načítavaní komentárov: {{ commentsLoadingError }}
+                                </div>
+                            </div>
+                        </div>
+                        <div v-else>
+                            <div class="d-flex justify-content-center my-3">
+                                <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Načítavanie...</span>
+                                </div>
+                            </div>
                         </div>
                     </section>
                 </div>
+            </div>
+        </div>
+        <div v-else class="container my-5">
+            <div class="alert alert-danger" role="alert">
+                Chyba pri načítavaní: {{ loadingError }}
             </div>
         </div>
     </div>

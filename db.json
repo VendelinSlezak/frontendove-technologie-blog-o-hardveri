@@ -1,130 +1,116 @@
 {
-  "articles": [
-    {
-      "id": "1",
-      "image": "intel-i9-14900k.jpg",
-      "altImg": "Intel Core i9-14900K procesor na doske",
-      "category": "Procesory",
-      "date": "2024-05-15",
-      "title": "Intel Core i9-14900K: Posúvanie hraníc stability",
-      "author": "Michal Hardvérový",
-      "perex": "Nová vlajková loď od Intelu sľubuje nevídaný výkon, ale prináša aj vysoké nároky na chladenie.",
-      "content": "V dnešnej recenzii sa pozrieme na to, či sa oplatí upgrade na 14. generáciu procesorov Intel. Testovali sme stabilitu pri pretaktovaní a teploty pri maximálnej záťaži...",
-      "priceRating": 7,
-      "qualityRating": 9,
-      "comments": [
+    "articles": [
         {
-          "username": "techfan123",
-          "date": "2024-05-16",
-          "content": "Skvelá recenzia! Veľmi mi pomohla pri rozhodovaní o kúpe."
+            "id": "1",
+            "image": "intel-i9-14900k.jpg",
+            "altImg": "Intel Core i9-14900K procesor na doske",
+            "category": "Procesory",
+            "date": "2024-05-15",
+            "title": "Intel Core i9-14900K: Posúvanie hraníc stability",
+            "author": "Michal Hardvérový",
+            "perex": "Nová vlajková loď od Intelu sľubuje nevídaný výkon, ale prináša aj vysoké nároky na chladenie.",
+            "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "priceRating": 7,
+            "qualityRating": 9
         },
         {
-          "username": "cpu_guru",
-          "date": "2024-05-17",
-          "content": "Súhlasím s tvojimi závermi, i9-14900K je naozaj výkonný procesor, ale chladenie je kľúčové."
+            "id": "2",
+            "image": "nvidia-rtx-4070-super.jpg",
+            "altImg": "NVIDIA RTX 4070 Super grafická karta na stole",
+            "category": "Grafické karty",
+            "date": "2024-05-20",
+            "title": "NVIDIA RTX 4070 Super: Ideálna karta pre 1440p?",
+            "author": "Jana Grafická",
+            "perex": "Stredná trieda grafických kariet dostala dychberúce vylepšenie, ktoré mení pomer cena/výkon.",
+            "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "priceRating": 8,
+            "qualityRating": 9
         },
         {
-          "username": "a",
-          "date": "2026-01-14",
-          "content": "a"
-        },
-        {
-          "username": "niasdf",
-          "date": "2026-01-14",
-          "content": "asdfasdf"
-        },
-        {
-          "username": "asdf",
-          "date": "2026-01-14",
-          "content": "fas"
+            "id": "3",
+            "image": "asus-rog-maximus-z790.jpg",
+            "altImg": "ASUS ROG Maximus Z790 základná doska v blízkosti počítača",
+            "category": "Základné dosky",
+            "date": "2024-05-22",
+            "title": "ASUS ROG Maximus Z790: Luxus pre nadšencov",
+            "author": "Peter Doska",
+            "perex": "Ak hľadáte základ pre váš nový build bez kompromisov, táto doska je horúcim kandidátom.",
+            "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "priceRating": 6,
+            "qualityRating": 10
         }
-      ]
-    },
-    {
-      "id": "2",
-      "image": "nvidia-rtx-4070-super.jpg",
-      "altImg": "NVIDIA RTX 4070 Super grafická karta na stole",
-      "category": "Grafické karty",
-      "date": "2024-05-20",
-      "title": "NVIDIA RTX 4070 Super: Ideálna karta pre 1440p?",
-      "author": "Jana Grafická",
-      "perex": "Stredná trieda grafických kariet dostala dychberúce vylepšenie, ktoré mení pomer cena/výkon.",
-      "content": "RTX 4070 Super prichádza s vyšším počtom CUDA jadier a lepšou efektivitou. V našich benchmarkoch porazila svoju predchodkyňu o viac ako 15 % v tituloch ako Cyberpunk 2077...",
-      "priceRating": 8,
-      "qualityRating": 9,
-      "comments": [
+    ],
+    "comments": [
         {
-          "username": "gamer_pro",
-          "date": "2024-05-21",
-          "content": "Táto karta je perfektná pre môj 1440p monitor! Skvelý výkon za rozumnú cenu."
+            "id": "1",
+            "articleId": "1",
+            "username": "techfan123",
+            "date": "2024-05-16",
+            "content": "Skvelá recenzia! Veľmi mi pomohla pri rozhodovaní o kúpe."
         },
         {
-          "username": "graphics_enthusiast",
-          "date": "2024-05-22",
-          "content": "Veľmi podrobná recenzia, ďakujem! Už sa teším na upgrade mojej zostavy."
+            "id": "2",
+            "articleId": "1",
+            "username": "cpu_guru",
+            "date": "2024-05-17",
+            "content": "Súhlasím s tvojimi závermi, i9-14900K je naozaj výkonný procesor, ale chladenie je kľúčové."
         },
         {
-          "username": "čau",
-          "date": "2026-01-14",
-          "content": "nič"
+            "id": "3",
+            "articleId": "2",
+            "username": "gamer_pro",
+            "date": "2024-05-21",
+            "content": "Táto karta je perfektná pre môj 1440p monitor! Skvelý výkon za rozumnú cenu."
+        },
+        {
+            "id": "4",
+            "articleId": "2",
+            "username": "graphics_enthusiast",
+            "date": "2024-05-22",
+            "content": "Veľmi podrobná recenzia, ďakujem! Už sa teším na upgrade mojej zostavy."
+        },
+        {
+            "id": "5",
+            "articleId": "3",
+            "username": "pc_builder",
+            "date": "2024-05-23",
+            "content": "Táto doska je skutočne top trieda! Perfektná pre môj nový herný PC."
+        },
+        {
+            "id": "6",
+            "articleId": "3",
+            "username": "hardware_lover",
+            "date": "2024-05-24",
+            "content": "Veľmi detailná recenzia, pomohla mi rozhodnúť sa medzi viacerými modelmi."
         }
-      ]
-    },
-    {
-      "id": "3",
-      "image": "asus-rog-maximus-z790.jpg",
-      "altImg": "ASUS ROG Maximus Z790 základná doska v blízkosti počítača",
-      "category": "Základné dosky",
-      "date": "2024-05-22",
-      "title": "ASUS ROG Maximus Z790: Luxus pre nadšencov",
-      "author": "Peter Doska",
-      "perex": "Ak hľadáte základ pre váš nový build bez kompromisov, táto doska je horúcim kandidátom.",
-      "content": "Základná doska s robustným napájaním a podporou pre DDR5 pamäte s frekvenciou cez 8000 MHz. Pozreli sme sa na BIOS a možnosti konektivity, vrátane Thunderbolt 4...",
-      "priceRating": 6,
-      "qualityRating": 10,
-      "comments": [
+    ],
+    "authors": [
         {
-          "username": "pc_builder",
-          "date": "2024-05-23",
-          "content": "Táto doska je skutočne top trieda! Perfektná pre môj nový herný PC."
+            "id": "1",
+            "image": "michal-hardverovy.jpg",
+            "altImg": "Portrét Michala Hardvérového",
+            "name": "Michal Hardvérový",
+            "briefDescription": "Špecialista na hardvér s viac ako 10 rokmi skúseností.",
+            "detailedDescription": "Michal je skúsený hardvérový nadšenec s viac ako 10 rokmi skúseností v oblasti počítačových komponentov a technológií."
         },
         {
-          "username": "hardware_lover",
-          "date": "2024-05-24",
-          "content": "Veľmi detailná recenzia, pomohla mi rozhodnúť sa medzi viacerými modelmi."
+            "id": "2",
+            "image": "jana-graficka.jpg",
+            "altImg": "Portrét Jany Grafickej",
+            "name": "Jana Grafická",
+            "briefDescription": "Expertka na grafické karty a herný hardvér.",
+            "detailedDescription": "Jana sa špecializuje na grafické karty a herný hardvér, prinášajúc čitateľom najnovšie recenzie a analýzy výkonu."
         },
         {
-          "username": "ahoj",
-          "date": "2026-01-14",
-          "content": "komentár"
+            "id": "3",
+            "image": "peter-doska.jpg",
+            "altImg": "Portrét Petra Dosku",
+            "name": "Peter Doska",
+            "briefDescription": "Expert na základné dosky a počítačové zostavy.",
+            "detailedDescription": "Peter je expert na základné dosky a počítačové zostavy, ktorý rád pomáha čitateľom vybrať ten správny hardvér pre ich potreby."
         }
-      ]
-    }
-  ],
-  "authors": [
-    {
-      "id": "1",
-      "image": "michal-hardverovy.jpg",
-      "altImg": "Portrét Michala Hardvérového",
-      "name": "Michal Hardvérový",
-      "briefDescription": "Špecialista na hardvér s viac ako 10 rokmi skúseností.",
-      "detailedDescription": "Michal je skúsený hardvérový nadšenec s viac ako 10 rokmi skúseností v oblasti počítačových komponentov a technológií."
-    },
-    {
-      "id": "2",
-      "image": "jana-graficka.jpg",
-      "altImg": "Portrét Jany Grafickej",
-      "name": "Jana Grafická",
-      "briefDescription": "Expertka na grafické karty a herný hardvér.",
-      "detailedDescription": "Jana sa špecializuje na grafické karty a herný hardvér, prinášajúc čitateľom najnovšie recenzie a analýzy výkonu."
-    },
-    {
-      "id": "3",
-      "image": "peter-doska.jpg",
-      "altImg": "Portrét Petra Dosku",
-      "name": "Peter Doska",
-      "briefDescription": "Expert na základné dosky a počítačové zostavy.",
-      "detailedDescription": "Peter je expert na základné dosky a počítačové zostavy, ktorý rád pomáha čitateľom vybrať ten správny hardvér pre ich potreby."
-    }
-  ]
+    ],
+    "messages": [
+
+    ]
 }

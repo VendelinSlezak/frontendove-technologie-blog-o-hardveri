@@ -8,8 +8,10 @@ export default {
     },
     data() {
         return {
+            apiUrl: 'http://localhost:3000/authors',
+            loaded: false,
+            loadingError: null,
             authors: [],
-            apiUrl: 'http://localhost:3000/authors'
         };
     },
     mounted() {
@@ -18,11 +20,16 @@ export default {
     methods: {
         async fetchAuthors() {
             try {
+                this.loaded = false;
                 const response = await fetch(this.apiUrl);
                 this.authors = await response.json();
             } 
             catch (error) {
                 console.error("Chyba pri komunikácii so serverom:", error);
+                this.loadingError = error.message;
+            }
+            finally {
+                this.loaded = true;
             }
         },
     }
@@ -30,11 +37,25 @@ export default {
 </script>
 
 <template>
-    <div class="container py-5">
-        <h1 class="mb-4">Naši autori</h1>
-    
-        <div v-for="author in authors" :key="author.id" class="mb-4">
-            <AuthorDescription :author="author" />
+    <div v-if="loaded">
+        <div class="container py-5" v-if="loadingError === null">
+            <h1 class="mb-4">Naši autori</h1>
+        
+            <div v-for="author in authors" :key="author.id" class="mb-4">
+                <AuthorDescription :author="author" />
+            </div>
+        </div>
+        <div class="container py-5" v-else>
+            <div class="alert alert-danger" role="alert">
+                Chyba pri načítavaní: {{ loadingError }}
+            </div>
+        </div>
+    </div>
+    <div v-else>
+        <div class="d-flex justify-content-center my-5">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Načítavanie...</span>
+            </div>
         </div>
     </div>
 </template>

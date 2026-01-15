@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import ClankyView from '@/views/ClankyView.vue'
-import ClanokView from '@/views/ClanokView.vue'
 import AutoriView from '@/views/AutoriView.vue'
 import KontaktView from '@/views/KontaktView.vue'
 
@@ -21,7 +20,7 @@ const router = createRouter({
         {
             path: '/clanky/:id',
             name: 'clanok',
-            component: ClanokView,
+            component: () => import('@/views/ClanokView.vue'),
             props: true,
         },
         {
@@ -34,6 +33,11 @@ const router = createRouter({
             name: 'kontakt',
             component: KontaktView,
         },
+        {
+            path: '/:pathMatch(.*)*',
+            name: 'not-found',
+            component: () => import('@/views/NotFoundView.vue'),
+        }
     ],
 })
 

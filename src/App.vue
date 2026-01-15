@@ -1,6 +1,6 @@
 <script>
-import { RouterView } from 'vue-router'
 import TheNavigation from './components/TheNavigation.vue'
+import { RouterView } from 'vue-router'
 import TheFooter from './components/TheFooter.vue'
 
 export default {

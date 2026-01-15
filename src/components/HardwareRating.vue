@@ -49,7 +49,7 @@ export default {
         </div>
     </div>
 </template>
-  
+
 <style scoped>
 .star-container {
     display: flex;
@@ -61,9 +61,5 @@ export default {
     height: 24px;
     object-fit: contain;
     transition: transform 0.2s;
-}
-
-.star-icon:hover {
-    transform: scale(1.1);
 }
 </style>
