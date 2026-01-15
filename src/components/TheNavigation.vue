@@ -11,7 +11,7 @@ export default {
         <div class="container pt-3 pb-3">
             <RouterLink class="navbar-brand" to="/">Blog o hardvéri</RouterLink>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <RouterLink class="nav-link" to="/clanky">Články</RouterLink>

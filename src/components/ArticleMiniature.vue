@@ -27,18 +27,21 @@ export default {
                 
                 <div class="col-md-8">
                     <div class="card-body d-flex flex-column h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge bg-info text-dark">{{ article.category }}</span>
+                            <small class="text-muted">{{ article.date }}</small>
+                        </div>
 
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span class="badge bg-info text-dark">{{ article.category }}</span>
-                        <small class="text-muted">{{ article.date }}</small>
-                    </div>
+                        <h4 class="card-title fw-bold">{{ article.title }}</h4>
 
-                    <h4 class="card-title fw-bold">{{ article.title }}</h4>
+                        <p class="card-text text-secondary mb-4">{{ article.perex }}</p>
 
-                    <p class="card-text text-secondary mb-4">{{ article.perex }}</p>
-
-                    <RouterLink :to="'/clanky/' + article.id" class="btn btn-outline-primary mt-auto align-self-start">Čítať článok</RouterLink>
-
+                        <RouterLink
+                            :to="'/clanky/' + article.id"
+                            class="btn btn-outline-primary mt-auto align-self-start"
+                        >
+                            Čítať článok
+                        </RouterLink>
                     </div>
                 </div>
             </div>

@@ -6,13 +6,13 @@ import { useCommentDraftStore } from '@/stores/commentDrafts.js';
 
 export default {
     name: 'ClanokView',
-    props: {
-        id: { type: String, required: true },
-    },
     components: {
         ArticleComment,
         ArticleImage,
         HardwareRating,
+    },
+    props: {
+        id: { type: String, required: true },
     },
     data() {
         return {
@@ -29,13 +29,21 @@ export default {
             submittingComment: false,
         };
     },
+    watch: {
+        newComment: {
+            deep: true,
+            handler(newValue) {
+                this.commentDraft.updateDraft(this.id, newValue);
+            },
+        }
+    },
     mounted() {
+        this.newComment = this.commentDraft.getDraft(this.id);
         this.fetchArticle();
         if(this.articleLoadingError !== null) {
             return;
         }
         this.fetchComments();
-        this.newComment = this.commentDraft.getDraft(this.id);
     },
     methods: {
         async fetchArticle() {
@@ -91,30 +99,23 @@ export default {
             catch(error) {
                 console.error("Chyba pri odosielaní:", error);
                 alert("Chyba pri odosielaní: " + error.message);
-                this.submittingComment = false;
                 return;
             }
+            finally {
+                this.submittingComment = false;
+            }
 
-            this.submittingComment = false;
             this.comments.push(newComment);
             this.newComment = { author: '', text: '' };
             this.commentDraft.clearDraft(this.id);
         },
-    },
-    watch: {
-        newComment: {
-            deep: true,
-            handler(newValue) {
-                this.commentDraft.updateDraft(this.id, newValue);
-            },
-        }
     },
 }
 </script>
 
 <template>
     <div v-if="articleLoaded">
-        <div id="app" class="container my-5" v-if="articleLoadingError === null">
+        <div v-if="articleLoadingError === null" class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <article>
@@ -157,21 +158,53 @@ export default {
                         
                         <form @submit.prevent="submitComment" class="mb-5 p-4 bg-light rounded">
                             <div class="mb-3">
-                                <label for="author" class="form-label">Meno</label>
-                                <input type="text" id="author" v-model="newComment.username" class="form-control" placeholder="Vaše meno" required>
+                                <label
+                                    for="author"
+                                    class="form-label"
+                                >
+                                    Meno
+                                </label>
+                                <input
+                                    id="author"
+                                    v-model="newComment.username"
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Vaše meno"
+                                    required
+                                >
                             </div>
 
                             <div class="mb-3">
-                                <label for="comment" class="form-label">Komentár</label>
-                                <textarea id="comment" v-model="newComment.content" class="form-control" rows="3" placeholder="Napíšte niečo..." required></textarea>
+                                <label
+                                    for="comment"
+                                    class="form-label"
+                                >
+                                    Komentár
+                                </label>
+                                <textarea
+                                    id="comment"
+                                    v-model="newComment.content"
+                                    class="form-control"
+                                    rows="3"
+                                    placeholder="Napíšte niečo..."
+                                    required
+                                ></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-primary" :disabled="submittingComment">
+                            <button
+                                type="submit"
+                                class="btn btn-primary"
+                                :disabled="submittingComment"
+                            >
                                 <span v-if="!submittingComment">
                                     Odoslať komentár
                                 </span>
                                 <span v-else>
-                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    <span
+                                        class="spinner-border spinner-border-sm"
+                                        role="status"
+                                        aria-hidden="true"
+                                    ></span>
                                     Odosielam komentár...
                                 </span>
                             </button>
@@ -181,7 +214,10 @@ export default {
                         
                         <div v-if="commentsLoaded">
                             <div v-if="commentsLoadingError === null">
-                                <div v-for="comment in comments" :key="comment.id">
+                                <div
+                                    v-for="comment in comments"
+                                    :key="comment.id"
+                                >
                                     <ArticleComment :comment="comment"/>
                                 </div>
                             </div>

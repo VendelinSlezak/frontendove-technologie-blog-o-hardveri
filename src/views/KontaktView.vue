@@ -39,11 +39,12 @@ export default {
             catch(error) {
                 console.error("Chyba pri komunikácii so serverom:", error);
                 this.statusMessage = "Nepodarilo sa uložiť správu.";
-                this.sending = false;
                 return;
             }
+            finally {
+                this.sending = false;
+            }
             
-            this.sending = false;
             this.formData.name = '';
             this.formData.email = '';
             this.formData.message = '';
@@ -64,23 +65,73 @@ export default {
         
                 <form @submit.prevent="sendEmail">
                     <div class="mb-3">
-                        <label for="name" class="form-label">Meno</label>
-                        <input type="text" v-model="formData.name" class="form-control" id="name" placeholder="Vaše meno" required>
+                        <label
+                            for="name"
+                            class="form-label"
+                        >
+                            Meno
+                        </label>
+                        <input
+                            id="name"
+                            v-model="formData.name"
+                            type="text"
+                            class="form-control"
+                            placeholder="Vaše meno"
+                            required
+                        >
                     </div>
             
                     <div class="mb-3">
-                        <label for="email" class="form-label">E-mail</label>
-                        <input type="email" v-model="formData.email" class="form-control" id="email" placeholder="vas@email.sk" required>
+                        <label
+                            for="email"
+                            class="form-label"
+                        >
+                            E-mail
+                        </label>
+                        <input
+                            id="email"
+                            v-model="formData.email"
+                            type="email"
+                            class="form-control"
+                            placeholder="vas@email.sk"
+                            required
+                        >
                     </div>
 
                     <div class="mb-4">
-                        <label for="message" class="form-label">Správa</label>
-                        <textarea v-model="formData.message" class="form-control" id="message" rows="5" placeholder="Napíšte nám vašu správu..." required></textarea>
+                        <label
+                            for="message"
+                            class="form-label"
+                        >
+                            Správa
+                        </label>
+                        <textarea
+                            id="message"
+                            v-model="formData.message"
+                            class="form-control"
+                            rows="5"
+                            placeholder="Napíšte nám vašu správu..."
+                            required
+                        ></textarea>
                     </div>
 
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-primary btn-lg" :disabled="sending">
-                            {{ sending ? 'Odosielam...' : 'Odoslať správu' }}
+                        <button
+                            type="submit"
+                            class="btn btn-primary btn-lg"
+                            :disabled="sending"
+                        >
+                            <span v-if="!sending">
+                                Odoslať správu
+                            </span>
+                            <span v-else>
+                                <span
+                                    class="spinner-border spinner-border-sm"
+                                    role="status"
+                                    aria-hidden="true"
+                                ></span>
+                                Odosielam správu...
+                            </span>
                         </button>
                     </div>
                 </form>

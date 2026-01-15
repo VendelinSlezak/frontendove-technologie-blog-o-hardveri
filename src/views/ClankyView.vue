@@ -38,14 +38,18 @@ export default {
 
 <template>
     <div v-if="loaded">
-        <div class="container py-5" v-if="loadingError === null">
+        <div v-if="loadingError === null" class="container py-5">
             <h1 class="mb-4">Všetky články</h1>
 
-            <div class="row g-4 pt-3 pb-3" v-for="article in articles" :key="article.id">
+            <div
+                v-for="article in articles"
+                :key="article.id"
+                class="row g-4 pt-3 pb-3"
+            >
                 <ArticleMiniature :article="article" />
             </div>
         </div>
-        <div class="container py-5" v-else>
+        <div v-else class="container py-5">
             <div class="alert alert-danger" role="alert">
                 Chyba pri načítavaní: {{ loadingError }}
             </div>

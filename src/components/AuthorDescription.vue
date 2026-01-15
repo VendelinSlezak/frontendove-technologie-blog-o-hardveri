@@ -15,7 +15,10 @@ export default {
 <template>
     <div class="row justify-content-center mb-4">
         <div class="col-12">
-            <div class="card shadow-sm border-0" style="background-color: #f7f6f3;">
+            <div
+                class="card shadow-sm border-0"
+                style="background-color: #f7f6f3;"
+            >
                 <div class="row g-0 align-items-center">
                     <div class="col-md-4 text-center py-3">
                         <img
