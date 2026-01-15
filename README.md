@@ -1,2 +1,5 @@
 # frontendove-technologie-blog-o-hardveri
-Školský projekt
+
+School project
+
+Running on https://vendelinslezak.github.io/frontendove-technologie-blog-o-hardveri/#/
