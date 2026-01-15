@@ -13,9 +13,9 @@ export default {
             <div class="row g-0 align-items-stretch">
                 <div class="col-md-4">
                     <img
-                        :src="article.image"
-                        class="img-fluid h-100 w-100 rounded-start"
-                        style="object-fit: cover;"
+                        :src="'/images/' + article.image"
+                        class="img-fluid rounded-start w-100"
+                        style="height: 250px; object-fit: contain;" 
                         :alt="article.altImg"
                     >
                 </div>

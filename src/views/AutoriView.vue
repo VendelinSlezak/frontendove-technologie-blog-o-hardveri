@@ -8,7 +8,7 @@ export default {
     },
     data() {
         return {
-            apiUrl: 'http://localhost:3000/authors',
+            apiUrl: import.meta.env.VITE_API_URL + '/authors',
             loaded: false,
             loadingError: null,
             authors: [],

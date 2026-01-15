@@ -16,8 +16,8 @@ export default {
     },
     data() {
         return {
-            articleApiUrl: 'http://localhost:3000/articles/' + this.id,
-            commentsApiUrl: 'http://localhost:3000/comments?articleId=' + this.id,
+            articleApiUrl: import.meta.env.VITE_API_URL + '/articles/' + this.id,
+            commentsApiUrl: import.meta.env.VITE_API_URL + '/comments?articleId=' + this.id,
             articleLoaded: false,
             articleLoadingError: null,
             article: [],
@@ -130,7 +130,7 @@ export default {
                         </section>
 
                         <ArticleImage
-                            :src="article.image" 
+                            :src="'/images/' + article.image" 
                             :alt="article.altImg" 
                             :caption="article.altImg"
                         />

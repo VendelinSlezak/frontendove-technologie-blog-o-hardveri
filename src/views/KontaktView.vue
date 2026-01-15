@@ -8,7 +8,7 @@ export default {
                 email: '',
                 message: ''
             },
-            apiUrl: 'http://localhost:3000/messages',
+            apiUrl: import.meta.env.VITE_API_URL + '/messages',
             sending: false,
             statusMessage: null,
             messages: [],
@@ -18,7 +18,7 @@ export default {
         async sendEmail() {
             this.statusMessage = null;
             this.sending = true;
-            
+
             try {
                 const response = await fetch(this.apiUrl, {
                     method: 'POST',

@@ -8,7 +8,7 @@ export default {
     },
     data() {
         return {
-            apiUrl: 'http://localhost:3000/articles',
+            apiUrl: import.meta.env.VITE_API_URL + '/articles',
             loaded: false,
             loadingError: null,
             articles: [],

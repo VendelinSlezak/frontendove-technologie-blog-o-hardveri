@@ -8,7 +8,8 @@
       "paths": {
         "@/*": ["src/*"]
       },
-      "checkJs": false
+      "checkJs": false,
+      "types": ["vite/client"]
     },
     "exclude": ["node_modules", "dist"]
   }

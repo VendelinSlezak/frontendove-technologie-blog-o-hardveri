@@ -12,11 +12,11 @@ export default {
         <div class="col-12">
             <div class="card shadow-sm border-0" style="background-color: #f7f6f3;">
                 <div class="row g-0 align-items-center">
-                    <div class="col-md-4 text-center">
+                    <div class="col-md-4 text-center py-3">
                         <img
-                            :src="author.image"
+                            :src="'/images/' + author.image"
                             :alt="author.altImg"
-                            class="card-img-top mx-auto mt-3"
+                            class="mx-auto rounded" 
                             style="width: 150px; height: 150px; object-fit: cover;"
                         >
                     </div>

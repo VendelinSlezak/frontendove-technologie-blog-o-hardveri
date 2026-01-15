@@ -10,9 +10,14 @@ export default {
 </script>
 
 <template>
-    <figure class="mb-4">
-        <img :src="src" class="img-fluid rounded" :alt="alt">
-        <figcaption class="text-center text-muted mt-2 fst-italic">
+    <figure class="mb-4 d-flex flex-column align-items-center">
+        <img 
+            :src="src" 
+            class="img-fluid rounded" 
+            style="max-width: 50%; height: auto;" 
+            :alt="alt"
+        >
+        <figcaption class="text-center text-muted mt-4 fst-italic">
             {{ caption }}
         </figcaption>
     </figure>
