@@ -4,6 +4,11 @@ export default {
     props: {
         author: { type: Object, required: true },
     },
+    data() {
+        return {
+            baseUrl: import.meta.env.BASE_URL,
+        };
+    }
 }
 </script>
 
@@ -14,7 +19,7 @@ export default {
                 <div class="row g-0 align-items-center">
                     <div class="col-md-4 text-center py-3">
                         <img
-                            :src="'/images/' + author.image"
+                            :src="baseUrl + 'images/' + author.image"
                             :alt="author.altImg"
                             class="mx-auto rounded" 
                             style="width: 150px; height: 150px; object-fit: cover;"

@@ -4,6 +4,11 @@ export default {
     props: {
         article: { type: Object, required: true },
     },
+    data() {
+        return {
+            baseUrl: import.meta.env.BASE_URL,
+        };
+    }
 }
 </script>
 
@@ -13,7 +18,7 @@ export default {
             <div class="row g-0 align-items-stretch">
                 <div class="col-md-4">
                     <img
-                        :src="'/images/' + article.image"
+                        :src="baseUrl + 'images/' + article.image"
                         class="img-fluid rounded-start w-100"
                         style="height: 250px; object-fit: contain;" 
                         :alt="article.altImg"
